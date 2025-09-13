@@ -93,7 +93,7 @@ where:
 
 Each local $ \beta_j $ comes from a global distribution:
 
-$$ \beta_j \sim N(\mu, \tao^2 I) $$
+$$ \beta_j \sim N(\mu, \tau^2 I) $$
 
 where: 
 * hyperparameters $ \mu $, $ \tao^2 $ get priors.
