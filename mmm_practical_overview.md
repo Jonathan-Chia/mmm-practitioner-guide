@@ -60,6 +60,7 @@ References:
 MMM just adds some marketing specific adjustments to Bayesian Linear regression models.
 
 Math Formula:
+
 $$ y_t = \sum_{i=1}^m \beta_i s_i(c_i(x_{t-l+1,i},...,x_{t,i}; \alpha_i); k_i, \lambda_i) + \sum_{j=1}^n \gamma_j z_{t,j} + \epsilon_t $$
 
 Code Example:
