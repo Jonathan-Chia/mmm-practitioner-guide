@@ -79,7 +79,11 @@ References:
 
 Hierarchical Bayesian Linear Models add a nested structure to the model. For example, if we are using a regular regression model to predict sales in the US using marketing spend as the predictor, there would be a single coefficient for marketing spend. With a hierarchical regression, we recognize that each state may have different marketing performance. Thus, we estimate a global marketing spend coefficient, representing the average marketing impact across all states, and local state-specific coefficients that capture deviations for each individual state.
 
-Math formula:
+Linear Regression formula:
+
+$$ y_i \sim N(X_i^T \beta, \sigma^2) $$
+
+Hierarchical Regression formula:
 
 $$ y_{ij} \sim N(X_{ij}^T \beta_j, \sigma^2) $$
 
