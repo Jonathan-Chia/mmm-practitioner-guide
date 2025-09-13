@@ -33,6 +33,8 @@ Math formula:
 
 $$ E(y_i|\beta, X) = \beta_1 x_{i1} + ... + \beta_k x_{ik} $$
 
+$$ y_i \sim N(X_i^T \beta, \sigma^2) $$
+
 Code Example:
 * Show this in PyMC
 
@@ -78,9 +80,25 @@ Hierarchical Bayesian Linear Models add a nested structure to the model. For exa
 
 Math formula:
 
+$$ y_{ij} \sim N(X_{ij}^T \beta_j, \sigma^2) $$
+
+where:
+* $ i $ indexes observations within group $ j $.
+* each group has its own regression coefficient $ \beta_j $.
+
+Each local $ \beta_j $ comes from a global distribution:
+
+$$ \beta_j \sim N(\mu, \tao^2 I) $$
+
+where: 
+* hyperparameters $ \mu $, $ \tao^2 $ get priors.
+
+So, instead of a single $ \beta $, we now have a distribution of $ \beta_j $s that center around a population mean $ \mu $. 
+
 Code Example:
 
 How is this different than just adding state as a variable?:
+* explain the concept of pooling and why this is good in our example
 
 References:
 * [Bayesian Data Analysis](https://sites.stat.columbia.edu/gelman/book/BDA3.pdf)
