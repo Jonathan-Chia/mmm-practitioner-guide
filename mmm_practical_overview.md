@@ -80,6 +80,8 @@ Math formula:
 
 Code Example:
 
+How is this different than just adding state as a variable?:
+
 References:
 * [Bayesian Data Analysis](https://sites.stat.columbia.edu/gelman/book/BDA3.pdf)
 
