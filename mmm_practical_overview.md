@@ -39,9 +39,9 @@ Code Example:
 * Show this in PyMC
 
 Difference from Linear Regression
-* Set prior on Coefficients: $ \beta $
-* Set prior on Variance: $ \sigma^2 $
-* Set prior on Intercept: $ \beta_0 $. 
+* Set prior on Coefficients: $\beta$
+* Set prior on Variance: $\sigma^2$
+* Set prior on Intercept: $\beta_0$. 
 
 Strengths:
 * Core bayesian strengths such as using posterior distributions and talking about 95% probability instead of 95% confidence intervals.
@@ -88,17 +88,17 @@ Hierarchical Regression formula:
 $$ y_{ij} \sim N(X_{ij}^T \beta_j, \sigma^2) $$
 
 where:
-* $ i $ indexes observations within group $ j $.
-* each group has its own regression coefficient $ \beta_j $.
+* $i$ indexes observations within group $j$.
+* each group has its own regression coefficient $\beta_j$.
 
-Each local $ \beta_j $ comes from a global distribution:
+Each local $\beta_j$ comes from a global distribution:
 
 $$ \beta_j \sim N(\mu, \tau^2 I) $$
 
 where: 
-* hyperparameters $ \mu $, $ \tao^2 $ get priors.
+* hyperparameters $\mu$, $\tao^2$ get priors.
 
-So, instead of a single $ \beta $, we now have a distribution of $ \beta_j $s that center around a population mean $ \mu $. 
+So, instead of a single $\beta$, we now have a distribution of $\beta_j$s that center around a population mean $\mu$. 
 
 Code Example:
 
@@ -110,22 +110,55 @@ References:
 
 ## 4. Hierarchical MMMs
 
-Hierarchical MMMs extend regular MMMs by introducing a hierarchy. For example, a hierarchical MMM might include national-level parameters for adstock, saturation, and priors, while also estimating state-level parameters that capture local variations in adstock, saturation, and priors.
+Hierarchical MMMs extend regular MMMs by introducing a hierarchy. For example, a hierarchical MMM might include national-level parameters for coefficients, while also estimating state-level parameters that capture local variations in the coefficients.
 
 Math formula:
+
+$$ y_{t,g} = \tau_g + \sum_{m=1}^M \beta_{m,g} Adstock(Hill(x_{t,m,g}; K_m, S_m), \alpha_m, L) + \sum_{c=1}^C \gamma_{c,g} * z_{t,c,g} + \epsilon_{t,g} $$
+
+$$ \beta_{m,g} \sim \mathcal{N}(\beta_m, \eta_m^2) $$
+
+$$ \gamma_{c,g} \sim \mathcal{N}(\gamma_c, \xi_c^2) $$
+
+$$ \tau_g \sim \mathcal{N}(\tau, \kappa^2) $$
+
+Where:
+* $y_{t,g}$ is the outcome for geo $g$ at time $t$.
+* Each geo $g$ has its own intercept $\tau_g$, coefficient $\beta_{m,g}$, and controls $\gamma_{c,g}$
+* The geo-level coefficients, controls, and intercepts are hierarchically linked to global means $\beta_m$, $\gamma_c$, and $\tau$.
+* This creates partial pooling: geos with little data borrow strength from the global distribution, while large geos can deviate more. 
 
 Code Example:
 
 Strengths:
+* More data and variation = better estimates - more observations to feed the model and more variation in spend at a geo-level.
+* Reduced bias under some conditions - generally at a national level ad spend and base demand are very correlated (think holidays) - but at geo level this correlation can be weaker.
+* Better fitting of adstock and saturation - more variability in spends in geos lets the model explore different parts of the curves.
+* Partial pooling helps smaller geos.
+* Overall should improve the model and the decisions.
 
 Weaknesses:
+* Hard to get geo-level data for everything.
+* National level data can be imputed to geo-level but it isn't the best.
+* Assumption that adstock and saturation are same across geos may not be correct.
+* Sensitivity to control variables. Imperfect controls still hurt estimates.
+* Computational complexity.
+* Pooling isn't perfect. Really sparse geos can have weird estimates. 
 
-Resources:
+References:
 * [Geo-level Bayesian Hierarchical MMM](https://research.google/pubs/geo-level-bayesian-hierarchical-media-mix-modeling/)
 
 ## 5. State of the Art
 
+Most state of the art MMMs are built by vendors or companies. Thus, we may not know the full extent of their advances, but we can gauge general principles and new features. 
+
+New developments in MMMs in commercial:
+
+New developments in MMMs in academia:
+
 # Methodology
+
+
 
 # Results
 
