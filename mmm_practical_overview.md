@@ -181,6 +181,10 @@ We will investigate how bad ignoring this causality can be for MMMs using simula
 
 First, we will build a naive MMM (replicating base model frameworks that we see in [Google Meridian](https://developers.google.com/meridian), and [PyMC Marketing](https://www.pymc-marketing.io/en/latest/)) and see how close it can get to the true parameters.
 
+Here's an example of PyMC's base model framework:
+
+![alt text](assets/img/pymc_example_dag.png)
+
 From there, we will build a more causally accurate MMM and see how close it can get to the true parameters. Google Meridian's framework might be able to succeed off the shelf because it has added features to account for branded search being an intermediate channel. 
 
 Lastly, we will examine if adding an incrementality estimate as a prior into the naive model can help push it in the right direction.
