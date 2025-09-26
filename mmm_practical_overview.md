@@ -35,7 +35,7 @@ $$ E(y_i|\beta, X) = \beta_1 x_{i1} + ... + \beta_k x_{ik} $$
 
 $$ y_i \sim N(X_i^T \beta, \sigma^2) $$
 
-Code Example:
+Code Example: [Bayesian Linear Regression](https://colab.research.google.com/drive/1ZppqL9fUdPzqyL2FXa2EqFcKrzCgd28D?usp=sharing)
 
 Difference from Linear Regression
 * Set prior on Coefficients: $\beta$
@@ -62,7 +62,7 @@ Math Formula:
 
 $$ y_t = \sum_{i=1}^m \beta_i s_i(c_i(x_{t-l+1,i},...,x_{t,i}; \alpha_i); k_i, \lambda_i) + \sum_{j=1}^n \gamma_j z_{t,j} + \epsilon_t $$
 
-Code Example:
+Code Example: [Bayesian MMM](https://colab.research.google.com/drive/1N38pqZnt7Vt1ppbxoqL_Hs_qA5ir4rHp?usp=sharing)
 
 Adjustments:
 * Adstock - ads can have a long lasting but decaying effect.
