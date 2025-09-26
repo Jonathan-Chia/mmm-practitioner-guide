@@ -5,7 +5,7 @@ This is my personal repo to research and improve my understanding of Media Mix M
 # Directory
 
 - [Paper Outline](mmm_practical_overview.md)
-- Code rough drafts
-  - [![Bayesian Linear Regression](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ZppqL9fUdPzqyL2FXa2EqFcKrzCgd28D?usp=sharing)
-  - [![Bayesian MMM](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1N38pqZnt7Vt1ppbxoqL_Hs_qA5ir4rHp?usp=sharing)
+- Code Rough Drafts (Google Collab)
+  - [Bayesian Linear Regression](https://colab.research.google.com/drive/1ZppqL9fUdPzqyL2FXa2EqFcKrzCgd28D?usp=sharing)
+  - [Bayesian MMM](https://colab.research.google.com/drive/1N38pqZnt7Vt1ppbxoqL_Hs_qA5ir4rHp?usp=sharing)
   - Bayesian MMM with incorrect causal DAG
